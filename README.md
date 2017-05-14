@@ -1,4 +1,4 @@
-![Logo](admin/mihome-Lamp.png)
+![Logo](admin/mihome-lamp.png)
 ioBroker mihome-lamp adapter
 =================
 
