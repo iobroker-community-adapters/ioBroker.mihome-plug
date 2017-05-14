@@ -20,14 +20,14 @@
 		"loglevel": "info",
 		"icon": "mihome-lamp.png",
 		"webExtension": "lib/mihome-lamp.js",
-		"readme": "https://github.com/ioBroker/ioBroker.mihome-vacuum/blob/master/README.md",
+		"readme": "https://github.com/MeisterTR/ioBroker.mihome-lamp/blob/master/README.md",
 		"keywords": [
 			"url",
 			"html",
 			"file",
 			"mihome-lamp"
 		],
-		"extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.mihome-vacuum/master/admin/mihome-vacuum.png",
+		"extIcon": "https://raw.githubusercontent.com/MeisterTR/ioBroker.mihome-lamp/master/admin/mihome-lamp.png",
 		"type": "hardware",
 		"config": {
 			"minWidth": 800,
