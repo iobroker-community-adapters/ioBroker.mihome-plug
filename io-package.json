@@ -1,0 +1,160 @@
+{
+	"common": {
+		"name": "mihome-lamp",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "Inital version",
+				"de": "Erste Version",
+				"ru": "Первая версия"
+			}
+		},
+		"title": "mihome-lamp Adapter",
+		"desc": "This adapter allows control Xiaomi Lamp ",
+		"authors": [
+			"MeisterTR <meistertr.smarthome@gmail.com>"
+		],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"mode": "daemon",
+		"loglevel": "info",
+		"icon": "mihome-lamp.png",
+		"webExtension": "lib/mihome-lamp.js",
+		"readme": "https://github.com/ioBroker/ioBroker.mihome-vacuum/blob/master/README.md",
+		"keywords": [
+			"url",
+			"html",
+			"file",
+			"mihome-lamp"
+		],
+		"extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.mihome-vacuum/master/admin/mihome-vacuum.png",
+		"type": "hardware",
+		"config": {
+			"minWidth": 800,
+			"width ": 1224
+		}
+	},
+	"native": {
+		"port": 54321,
+		"ownPort": 53421,
+		"pingInterval": 20000,
+		"token": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	},
+	"instanceObjects": [
+		{
+			"_id": "info",
+			"type": "channel",
+			"common": {
+				"name": "Information"
+			},
+			"native": {}
+		},
+		{
+			"_id": "info.connection",
+			"type": "state",
+			"common": {
+				"role": "indicator.connected",
+				"name": "If connected to CUL",
+				"type": "boolean",
+				"read": true
+			},
+			"native": {}
+		},
+		{
+			"_id": "power",
+			"type": "state",
+			"common": {
+				"name": "Lamp power",
+				"type": "boolean",
+				"read": true,
+				"write": true,
+				"role": "state"
+			},
+			"native": {}
+		},
+		{
+			"_id": "bright",
+			"type": "state",
+			"common": {
+				"name": "Lamp brightness",
+				"type": "number",
+				"read": true,
+				"write": true,
+				"unit": "%",
+				"max": 100
+			},
+			"native": {}
+		},
+		{
+			"_id": "notifystatus",
+			"type": "state",
+			"common": {
+				"name": "Notify status",
+				"type": "boolean",
+				"read": true,
+				"write": true,
+				"role": "state"
+			},
+			"native": {}
+		},
+		{
+			"_id": "ambstatus",
+			"type": "state",
+			"common": {
+				"name": "Amb status",
+				"type": "boolean",
+				"read": true,
+				"write": true,
+				"role": "state"
+			},
+			"native": {}
+		},
+		{
+			"_id": "eyecare",
+			"type": "state",
+			"common": {
+				"name": "Set eyecare",
+				"type": "boolean",
+				"read": true,
+				"write": true,
+				"role": "state"
+			},
+			"native": {}
+		},
+		{
+			"_id": "bls",
+			"type": "state",
+			"common": {
+				"name": "Night light",
+				"type": "boolean",
+				"read": true,
+				"write": true,
+				"role": "state"
+			},
+			"native": {}
+		},
+		{
+			"_id": "scene_num",
+			"type": "state",
+			"common": {
+				"name": "Scene",
+				"type": "number",
+				"read": true,
+				"write": true,
+				"max": 5
+			},
+			"native": {}
+		},
+		{
+			"_id": "dvalue",
+			"type": "state",
+			"common": {
+				"name": "Off timer",
+				"type": "number",
+				"read": true,
+				"write": true
+			},
+			"native": {}
+		}
+	]
+}

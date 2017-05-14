@@ -1,0 +1,96 @@
+{
+  "Name": "Mihome",
+  "devices":{
+    "vacuum":{
+      "objects":[
+         { "_id":"info.battery",
+           "type": "state",
+         "common": {
+             "name":  "Battery status",
+             "type":  "number",
+             "read":  true,
+             "write": false,
+             "unit":  "%",
+             "min":   0,
+             "max":   100
+         },
+         "native": {}
+     },
+              { "_id": "testid",
+                "type": "state",
+         "common": {
+             "name":  "Battery status",
+             "type":  "number",
+             "read":  true,
+             "write": false,
+             "unit":  "%",
+             "min":   0,
+             "max":   100
+         },
+         "native": {}
+     }
+
+        ]
+    },
+        "lamp1":{
+      "objects":[
+         { "_id":"info.battery",
+           "type": "state",
+         "common": {
+             "name":  "Battery status",
+             "type":  "number",
+             "read":  true,
+             "write": false,
+             "unit":  "%",
+             "min":   0,
+             "max":   100
+         },
+         "native": {}
+     },
+              { "_id": "testid",
+                "type": "state",
+         "common": {
+             "name":  "Battery status",
+             "type":  "number",
+             "read":  true,
+             "write": false,
+             "unit":  "%",
+             "min":   0,
+             "max":   100
+         },
+         "native": {}
+     }
+
+        ],
+              "commands":[
+         { "_id":"info.battery",
+           "type": "state",
+         "common": {
+             "name":  "Battery status",
+             "type":  "number",
+             "read":  true,
+             "write": false,
+             "unit":  "%",
+             "min":   0,
+             "max":   100
+         },
+         "native": {}
+     },
+              { "_id": "testid",
+                "type": "state",
+         "common": {
+             "name":  "Battery status",
+             "type":  "number",
+             "read":  true,
+             "write": false,
+             "unit":  "%",
+             "min":   0,
+             "max":   100
+         },
+         "native": {}
+     }
+
+        ]
+    }
+  }
+}
