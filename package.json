@@ -6,9 +6,9 @@
 		"ioBroker",
 		"mihome-lamp"
 	],
-	"homepage": "https://github.com/ioBroker/ioBroker.mihome-vacuum",
+	"homepage": "https://github.com/MeisterTR/ioBroker.mihome-lamp",
 	"bugs": {
-		"url": "https://github.com/ioBroker/ioBroker.mihome-vacuum/issues"
+		"url": "https://github.com/MeisterTR/ioBroker.mihome-lamp/issues"
 	},
 	"license": "MIT",
 	"author": {
@@ -18,7 +18,7 @@
 	"main": "main.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ioBroker/ioBroker.mihome-la"
+		"url": "https://github.com/MeisterTR/ioBroker.mihome-lamp"
 	},
 	"scripts": {
 		"test": "node node_modules/mocha/bin/mocha"
