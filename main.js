@@ -22,7 +22,7 @@ var packet;
 // is called if a subscribed state changes
 adapter.on('stateChange', function(id, state) {
   if (!state || state.ack) return;
-
+  //test
   // Warning, state can be null if it was deleted
   adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
 
