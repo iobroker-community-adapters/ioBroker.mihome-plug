@@ -76,11 +76,6 @@ adapter.on('stateChange', function(id, state) {
     } else adapter.log.warn("scene_num must betrween 0 and 3 not:" + state.val);
   }
 
-
-
-
-
-
 });
 
 adapter.on('unload', function(callback) {
@@ -106,11 +101,11 @@ function sendPing() {
   }, 3000);
 
   try {
-    if (packet.token.toString('hex') != "ffffffffffffffffffffffffffffffff") {
+    if (packet.token.toString('hex') !== "ffffffffffffffffffffffffffffffff") {
       packet.msgCounter = 400;
       message = commands.get_prop;
     } else {
-      adapter.log.warn('Token is not find jet!');
+      adapter.log.warn('Token is not found yet!');
     }
 
 
