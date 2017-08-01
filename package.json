@@ -1,14 +1,14 @@
 {
-	"name": "iobroker.mihome-lamp",
+	"name": "iobroker.mihome-plug",
 	"version": "0.1.0",
 	"description": "Control your mihome Lamp with ioBroker",
 	"keywords": [
 		"ioBroker",
-		"mihome-lamp"
+		"mihome-plug"
 	],
-	"homepage": "https://github.com/MeisterTR/ioBroker.mihome-lamp",
+	"homepage": "https://github.com/MeisterTR/ioBroker.mihome-plug",
 	"bugs": {
-		"url": "https://github.com/MeisterTR/ioBroker.mihome-lamp/issues"
+		"url": "https://github.com/MeisterTR/ioBroker.mihome-plug/issues"
 	},
 	"license": "MIT",
 	"author": {
@@ -18,7 +18,7 @@
 	"main": "main.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/MeisterTR/ioBroker.mihome-lamp"
+		"url": "https://github.com/MeisterTR/ioBroker.mihome-plug"
 	},
 	"scripts": {
 		"test": "node node_modules/mocha/bin/mocha"

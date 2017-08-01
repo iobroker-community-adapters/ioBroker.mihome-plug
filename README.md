@@ -1,12 +1,14 @@
-![Logo](admin/mihome-lamp.png)
-ioBroker mihome-lamp adapter
+![Logo](admin/mihome-plug.png)
+ioBroker mihome-plug adapter
 =================
 
-This adapter allows you control the Xiaomi Lamp with ioBroker.
+This adapter allows you control the Xiaomi Plug (wifi) with ioBroker.
+You can control simple and 6x plugs with it. 
+You need token to control it. The instruction for that you can find [here](https://github.com/ioBroker/ioBroker.mihome-vacuum#configuration)
 
-
+This adapter is forked from [MeisterTR](https://github.com/MeisterTR/iobroker.mihome-lamp)
 
 ## Changelog
 
-### 0.0.1 (2017-01-16)
-* (MeisterTR) initial commit
+### 0.0.1 (2017-08-01)
+* (bluefox) initial commit

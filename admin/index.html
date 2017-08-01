@@ -181,20 +181,28 @@
 
 <div id="adapter-container">
 
-    <table><tr><td><img src="mihome-lamp.png"></td><td><h3 class="translate">MiHome-Lamp adapter settings</h3></td></tr></table>
+    <table><tr><td><img src="mihome-plug.png"></td><td><h3 class="translate">MiHome-Plug adapter settings</h3></td></tr></table>
 
     <table style="width: 100%;">
         <tr>
-            <td style="width: 200px;"><label for="ip" class="translate">IP address: </label></td>
+            <td style="width: 200px;"><label for="ip" class="translate">IP address:</label></td>
             <td><input class="value" id="ip" size="15" style="width: 100px;"/></td>
         </tr>
         <tr>
-            <td><label for="port" class="translate">Lamp port: </label></td>
+            <td><label for="port" class="translate">Lamp port:</label></td>
             <td><input class="value" id="port" size="5" type="number" style="width: 60px;"/></td>
         </tr>
         <tr>
-            <td><label for="port" class="translate">Own port: </label></td>
+            <td><label for="port" class="translate">Own port:</label></td>
             <td><input class="value" id="ownPort" size="5" type="number" style="width: 60px;"/></td>
+        </tr>
+        <tr>
+            <td><label for="token" class="translate">Token:</label></td>
+            <td><input class="value" id="token" style="width: 100%;"/></td>
+        </tr>
+        <tr>
+            <td><label for="pingInterval" class="translate">Poll interval (ms):</label></td>
+            <td><input class="value" id="pingInterval" min="1000" max="36000000" type="number" style="width: 60px;"/></td>
         </tr>
         <tr>
         </tr>

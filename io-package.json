@@ -1,6 +1,6 @@
 {
 	"common": {
-		"name": "mihome-lamp",
+		"name": "mihome-plug",
 		"version": "0.0.1",
 		"news": {
 			"0.0.1": {
@@ -9,8 +9,8 @@
 				"ru": "Первая версия"
 			}
 		},
-		"title": "mihome-lamp Adapter",
-		"desc": "This adapter allows control Xiaomi Lamp ",
+		"title": "mihome-plug Adapter",
+		"desc": "This adapter allows control Xiaomi Plug (wifi) ",
 		"authors": [
 			"MeisterTR <meistertr.smarthome@gmail.com>"
 		],
@@ -18,16 +18,16 @@
 		"platform": "Javascript/Node.js",
 		"mode": "daemon",
 		"loglevel": "info",
-		"icon": "mihome-lamp.png",
-		"webExtension": "lib/mihome-lamp.js",
-		"readme": "https://github.com/MeisterTR/ioBroker.mihome-lamp/blob/master/README.md",
+		"icon": "mihome-plug.png",
+		"webExtension": "lib/mihome-plug.js",
+		"readme": "https://github.com/MeisterTR/ioBroker.mihome-plug/blob/master/README.md",
 		"keywords": [
 			"url",
 			"html",
 			"file",
-			"mihome-lamp"
+			"mihome-plug"
 		],
-		"extIcon": "https://raw.githubusercontent.com/MeisterTR/ioBroker.mihome-lamp/master/admin/mihome-lamp.png",
+		"extIcon": "https://raw.githubusercontent.com/MeisterTR/ioBroker.mihome-plug/master/admin/mihome-plug.png",
 		"type": "hardware",
 		"config": {
 			"minWidth": 800,
@@ -35,6 +35,7 @@
 		}
 	},
 	"native": {
+		"ip": "0.0.0.0",
 		"port": 54321,
 		"ownPort": 53421,
 		"pingInterval": 20000,
@@ -54,7 +55,7 @@
 			"type": "state",
 			"common": {
 				"role": "indicator.connected",
-				"name": "If connected to CUL",
+				"name": "If connected to Plug",
 				"type": "boolean",
 				"read": true
 			},
@@ -64,7 +65,7 @@
 			"_id": "power",
 			"type": "state",
 			"common": {
-				"name": "Lamp power",
+				"name": "Plug power",
 				"type": "boolean",
 				"read": true,
 				"write": true,
@@ -73,86 +74,27 @@
 			"native": {}
 		},
 		{
-			"_id": "bright",
+			"_id": "temperature",
 			"type": "state",
 			"common": {
-				"name": "Lamp brightness",
+				"name": "Plug temperature",
 				"type": "number",
 				"read": true,
-				"write": true,
-				"unit": "%",
-				"max": 100
+				"write": false,
+				"unit": "°C",
+				"role": "value.temperature"
 			},
 			"native": {}
 		},
 		{
-			"_id": "notifystatus",
+			"_id": "wifi_led",
 			"type": "state",
 			"common": {
-				"name": "Notify status",
+				"name": "Plug wifi LED",
 				"type": "boolean",
 				"read": true,
 				"write": true,
 				"role": "state"
-			},
-			"native": {}
-		},
-		{
-			"_id": "ambstatus",
-			"type": "state",
-			"common": {
-				"name": "Amb status",
-				"type": "boolean",
-				"read": true,
-				"write": true,
-				"role": "state"
-			},
-			"native": {}
-		},
-		{
-			"_id": "eyecare",
-			"type": "state",
-			"common": {
-				"name": "Set eyecare",
-				"type": "boolean",
-				"read": true,
-				"write": true,
-				"role": "state"
-			},
-			"native": {}
-		},
-		{
-			"_id": "bls",
-			"type": "state",
-			"common": {
-				"name": "Night light",
-				"type": "boolean",
-				"read": true,
-				"write": true,
-				"role": "state"
-			},
-			"native": {}
-		},
-		{
-			"_id": "scene_num",
-			"type": "state",
-			"common": {
-				"name": "Scene",
-				"type": "number",
-				"read": true,
-				"write": true,
-				"max": 5
-			},
-			"native": {}
-		},
-		{
-			"_id": "dvalue",
-			"type": "state",
-			"common": {
-				"name": "Off timer",
-				"type": "number",
-				"read": true,
-				"write": true
 			},
 			"native": {}
 		}
