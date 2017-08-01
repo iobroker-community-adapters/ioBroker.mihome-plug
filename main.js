@@ -247,6 +247,7 @@ function main() {
               if (typeof callback === 'function') callback(err);
             });
             packet.msgCounter++;
+            if (packet.msgCounter > 0xFFFFFF) packet.msgCounter = 1; // overflow protect
           } catch (err) {
             adapter.log.warn('Cannot send command_: ' + err);
             if (typeof callback === 'function') callback(err);
