@@ -244,12 +244,10 @@ function main() {
             message = "";
             server.send(cmdraw, 0, cmdraw.length, adapter.config.port, adapter.config.ip, function(err) {
               if (err) adapter.log.error('Cannot send command: ' + err);
-              if (typeof callback === 'function') callback(err);
             });
             packet.msgCounter++;
           } catch (err) {
             adapter.log.warn('Cannot send command_: ' + err);
-            if (typeof callback === 'function') callback(err);
           }
         }
       } else {
