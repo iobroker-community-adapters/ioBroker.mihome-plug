@@ -78,8 +78,12 @@ function sendPing() {
     }, 3000);
 
     try {
-        packet.msgCounter = 400;
-        message = commands.get_prop;
+        if (packet.token.toString('hex') !== 'ffffffffffffffffffffffffffffffff') {
+            packet.msgCounter = 400;
+            message = commands.get_prop;
+        } else {
+            adapter.log.warn('Token is not found yet!');
+        }
 
         server.send(commands.ping, 0, commands.ping.length, adapter.config.port, adapter.config.ip, function (err) {
             if (err) adapter.log.error('Cannot send ping: ' + err)
