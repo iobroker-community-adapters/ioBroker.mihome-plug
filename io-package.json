@@ -54,7 +54,7 @@
 			"type": "state",
 			"common": {
 				"role": "indicator.connected",
-				"name": "If connected to CUL",
+				"name": "If connected to Lamp",
 				"type": "boolean",
 				"read": true
 			},
