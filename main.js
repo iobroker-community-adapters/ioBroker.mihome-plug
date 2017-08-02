@@ -239,13 +239,11 @@ function main() {
             message = "";
             server.send(cmdraw, 0, cmdraw.length, adapter.config.port, adapter.config.ip, function(err) {
               if (err) adapter.log.error('Cannot send command: ' + err);
-              if (typeof callback === 'function') callback(err);
             });
             packet.msgCounter++;
             if (packet.msgCounter > 0xFFFFFF) packet.msgCounter = 1; // overflow protect
           } catch (err) {
             adapter.log.warn('Cannot send command_: ' + err);
-            if (typeof callback === 'function') callback(err);
           }
         }
       } else {
