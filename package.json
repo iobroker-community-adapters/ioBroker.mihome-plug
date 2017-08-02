@@ -1,7 +1,7 @@
 {
 	"name": "iobroker.mihome-lamp",
 	"version": "0.1.0",
-	"description": "Control your mihome Lamp with ioBroker",
+	"description": "Control your mihome lamp with ioBroker",
 	"keywords": [
 		"ioBroker",
 		"mihome-lamp"
