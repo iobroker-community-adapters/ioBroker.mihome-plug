@@ -1,7 +1,7 @@
 systemDictionary = {
-    "MiHome-vacuum adapter settings": {
-        "de": "MiHome-vacuum Adapter Einstellungen",
-        "ru": "Настройки драйвера MiHome пылесоса"
+    "MiHome-Lamp adapter settings": {
+        "de": "MiHome-Lampe Adapter Einstellungen",
+        "ru": "Настройки драйвера MiHome лампы"
     },
     "IP address: ":     {"en": "IP address: ",      "de": "IP-Adresse der Lampe: ",     "ru": "IP адрес: "},
     "Lamp port: ":     {"en": "Lamp port: ",        "de": "Port der Lampe: ",           "ru": "Порт пылесоса: "},
