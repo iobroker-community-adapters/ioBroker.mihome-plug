@@ -1,9 +1,9 @@
 {
 	"common": {
 		"name": "mihome-plug",
-		"version": "0.0.1",
+		"version": "0.1.1",
 		"news": {
-			"0.0.1": {
+			"0.1.1": {
 				"en": "Inital version",
 				"de": "Erste Version",
 				"ru": "Первая версия"
@@ -12,7 +12,7 @@
 		"title": "mihome-plug Adapter",
 		"desc": "This adapter allows control Xiaomi Plug (wifi) ",
 		"authors": [
-			"MeisterTR <meistertr.smarthome@gmail.com>"
+			"bluefox <dogafox@gmail.com>"
 		],
 		"license": "MIT",
 		"platform": "Javascript/Node.js",
@@ -20,14 +20,14 @@
 		"loglevel": "info",
 		"icon": "mihome-plug.png",
 		"webExtension": "lib/mihome-plug.js",
-		"readme": "https://github.com/MeisterTR/ioBroker.mihome-plug/blob/master/README.md",
+		"readme": "https://github.com/ioBroker/ioBroker.mihome-plug/blob/master/README.md",
 		"keywords": [
 			"url",
 			"html",
 			"file",
 			"mihome-plug"
 		],
-		"extIcon": "https://raw.githubusercontent.com/MeisterTR/ioBroker.mihome-plug/master/admin/mihome-plug.png",
+		"extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.mihome-plug/master/admin/mihome-plug.png",
 		"type": "hardware",
 		"config": {
 			"minWidth": 800,
