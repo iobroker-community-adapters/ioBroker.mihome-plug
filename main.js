@@ -53,25 +53,6 @@ adapter.on('stateChange', function (id, state) {
             });
         }
     }
-<<<<<<< HEAD
-=======
-  } else if (command === 'bright') {
-    sendCommand(commands['set_bright'] + state.val + ']', function() {
-      adapter.setForeignState(adapter.namespace + '.' + command, state.val, true);
-    });
-  } else if (command === 'dvalue') {
-    sendCommand(commands['delay_off'] + state.val + ']', function() {
-      adapter.setForeignState(adapter.namespace + '.' + command, state.val, true);
-    });
-  } else if (command === 'scene_num') {
-    if (state.val <= 3 && state.val >= 0) {
-      sendCommand(commands['set_user_scene'] + state.val + ']', function() {
-        adapter.setForeignState(adapter.namespace + '.' + command, state.val, true);
-      });
-    } else adapter.log.warn("scene_num must betrween 0 and 3 not:" + state.val);
-  }
-
->>>>>>> MeisterTR/master
 });
 
 adapter.on('unload', function (callback) {
@@ -87,7 +68,6 @@ adapter.on('ready', main);
 var pingTimeout = null;
 
 function sendPing() {
-<<<<<<< HEAD
     pingTimeout = setTimeout(function () {
         pingTimeout = null;
         if (connected) {
@@ -96,25 +76,6 @@ function sendPing() {
             adapter.setState('info.connection', false, true);
         }
     }, 3000);
-=======
-  pingTimeout = setTimeout(function() {
-    pingTimeout = null;
-    if (connected) {
-      connected = false;
-      adapter.log.info('Disconnect');
-      adapter.setState('info.connection', false, true);
-    }
-  }, 3000);
-
-  try {
-    if (packet.token.toString('hex') !== "ffffffffffffffffffffffffffffffff") {
-      packet.msgCounter = 400;
-      message = commands.get_prop;
-    } else {
-      adapter.log.warn('Token is not found yet!');
-    }
-
->>>>>>> MeisterTR/master
 
     try {
         if (packet.token.toString('hex') !== 'ffffffffffffffffffffffffffffffff') {
@@ -200,7 +161,6 @@ function main() {
         return;
     }
 
-<<<<<<< HEAD
     packet = new MiHome.Packet();
 
     packet.msgCounter = 1;
@@ -276,25 +236,6 @@ function main() {
                 //adapter.log.warn('server got: ' + msg.length + ' bytes from ' + rinfo.address + ':' + rinfo.port);
                 getStates(packet.getPlainData());
             }
-=======
-        if (message.length > 0) {
-          try {
-            packet.setPlainData('{"id":' + packet.msgCounter + ',' + message + '}');
-            adapter.log.debug('{"id":' + packet.msgCounter + ',' + message + '}');
-
-            var cmdraw = packet.getRaw();
-            adapter.log.debug('Send >>> {"id":' + packet.msgCounter + ',' + message + "} >>> " + cmdraw.toString('hex'));
-            adapter.log.debug(cmdraw.toString('hex'));
-            message = "";
-            server.send(cmdraw, 0, cmdraw.length, adapter.config.port, adapter.config.ip, function(err) {
-              if (err) adapter.log.error('Cannot send command: ' + err);
-            });
-            packet.msgCounter++;
-            if (packet.msgCounter > 0xFFFFFF) packet.msgCounter = 1; // overflow protect
-          } catch (err) {
-            adapter.log.warn('Cannot send command_: ' + err);
-          }
->>>>>>> MeisterTR/master
         }
     });
 
