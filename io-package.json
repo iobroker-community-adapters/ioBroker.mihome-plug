@@ -1,21 +1,14 @@
 {
 	"common": {
-<<<<<<< HEAD
 		"name": "mihome-plug",
 		"version": "0.1.1",
 		"news": {
 			"0.1.1": {
-=======
-		"name": "mihome-lamp",
-		"version": "0.1.0",
-		"news": {
-			"0.1.0": {
 				"en": "Version update",
 				"de": "Version erhöht",
 				"ru": "Первая версия"
 			},
 			"0.0.1": {
->>>>>>> MeisterTR/master
 				"en": "Inital version",
 				"de": "Erste Version",
 				"ru": "Первая версия"
