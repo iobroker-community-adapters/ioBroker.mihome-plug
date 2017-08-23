@@ -60,7 +60,11 @@
 			"type": "state",
 			"common": {
 				"role": "indicator.connected",
+<<<<<<< HEAD
 				"name": "If connected to Plug",
+=======
+				"name": "If connected to Lamp",
+>>>>>>> MeisterTR/master
 				"type": "boolean",
 				"read": true
 			},
