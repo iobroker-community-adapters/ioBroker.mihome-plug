@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
 	"name": "iobroker.mihome-plug",
 	"version": "0.1.1",
 	"description": "Control your mihome Lamp with ioBroker",
-=======
-	"name": "iobroker.mihome-lamp",
-	"version": "0.1.0",
-	"description": "Control your mihome lamp with ioBroker",
->>>>>>> MeisterTR/master
 	"keywords": [
 		"ioBroker",
 		"mihome-plug"

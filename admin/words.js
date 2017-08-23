@@ -1,13 +1,7 @@
 systemDictionary = {
-<<<<<<< HEAD
     "MiHome-Plug adapter settings": {
         "de": "MiHome-Plug Adapter Einstellungen",
         "ru": "Настройки драйвера MiHome розетки"
-=======
-    "MiHome-Lamp adapter settings": {
-        "de": "MiHome-Lampe Adapter Einstellungen",
-        "ru": "Настройки драйвера MiHome лампы"
->>>>>>> MeisterTR/master
     },
     "IP address:":     {"en": "IP address:",      "de": "IP-Adresse des Pluges:",    "ru": "IP адрес розетки:"},
     "Lamp port:":      {"en": "Plug port:",       "de": "Port des Pluges:",          "ru": "Порт розетки:"},
