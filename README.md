@@ -2,8 +2,8 @@
 ioBroker mihome-lamp adapter
 =================
 
-[![NPM version](http://img.shields.io/npm/v/ioBroker.mihome-lamp.svg)](https://www.npmjs.com/package/ioBroker.mihome-lamp)
-[![Downloads](https://img.shields.io/npm/dm/ioBroker.mihome-lamp.svg)](https://www.npmjs.com/package/ioBroker.mihome-lamp)
+[![NPM version](http://img.shields.io/npm/v/iobroker.mihome-lamp.svg)](https://www.npmjs.com/package/iobroker.mihome-lamp)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.mihome-lamp.svg)](https://www.npmjs.com/package/iobroker.mihome-lamp)
 [![bitHound Overall Score](https://www.bithound.io/github/MeisterTR/ioBroker.mihome-lamp/badges/score.svg)](https://www.bithound.io/github/MeisterTR/ioBroker.mihome-lamp)
 
 [![NPM](https://nodei.co/npm/ioBroker.mihome-lamp.png?downloads=true)](https://nodei.co/npm/ioBroker.mihome-lamp/)
