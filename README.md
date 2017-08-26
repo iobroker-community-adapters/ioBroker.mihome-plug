@@ -9,7 +9,7 @@ ioBroker mihome-lamp adapter
 [![NPM](https://nodei.co/npm/iobroker.mihome-lamp.png?downloads=true)](https://nodei.co/npm/iobroker.mihome-lamp/)
 
 **Tests:** Linux/Mac: [![Travis-CI](https://api.travis-ci.org/MeisterTR/ioBroker.mihome-lamp.svg?branch=master)](https://travis-ci.org/MeisterTR/ioBroker.mihome-lamp)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/MeisterTR/iobroker-mihome-lamp?branch=master&svg=true)](https://ci.appveyor.com/project/MeisterTR/iobroker-mihome-lamp/)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/MeisterTR/iobroker.mihome-lamp?branch=master&svg=true)](https://ci.appveyor.com/project/MeisterTR/iobroker-mihome-lamp/)
 
 
 This adapter allows you control the Xiaomi Lamp with ioBroker.
