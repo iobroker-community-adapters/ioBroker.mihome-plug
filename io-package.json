@@ -41,7 +41,7 @@
 	},
 	"native": {
 		"port": 54321,
-		"ownPort": 53421,
+		"ownPort": 53423,
 		"pingInterval": 20000,
 		"token": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
 	},
