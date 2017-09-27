@@ -1,5 +1,5 @@
 ![Logo](admin/mihome-plug.png)
-ioBroker mihome-plug adapter
+#ioBroker mihome-plug adapter
 =================
 
 This adapter allows you control the Xiaomi Plug (wifi) with ioBroker.
