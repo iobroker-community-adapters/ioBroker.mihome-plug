@@ -1,34 +1,34 @@
 /* jshint -W097 */
-/* jshint strict:false */
+/* jshint strict: false */
 /* jslint node: true */
 'use strict';
 
 // you have to require the utils module and call adapter function
-var utils = require(__dirname + '/lib/utils'); // Get common adapter utils
-var adapter = new utils.Adapter('mihome-plug');
-var dgram = require('dgram');
-var MiHome = require(__dirname + '/lib/mihomepacket');
+const utils   = require(__dirname + '/lib/utils'); // Get common adapter utils
+const adapter = new utils.Adapter('mihome-plug');
+const dgram   = require('dgram');
+const MiHome  = require('./lib/mihomepacket');
 
-var server = dgram.createSocket('udp4');
+const server  = dgram.createSocket('udp4');
 
-var connected = false;
-var commands = {};
-var paramReq = null;
-var pingInterval;
-var message = '';
-var packet;
+let connected = false;
+let commands  = {};
+let paramReq  = null;
+let pingInterval;
+let message = '';
+let packet;
 
 // is called if a subscribed state changes
-adapter.on('stateChange', function (id, state) {
+adapter.on('stateChange', (id, state) => {
     if (!state || state.ack) return;
     //test
     // Warning, state can be null if it was deleted
     adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
 
     // output to parser
-    var command = id.split('.').pop();
+    const command = id.split('.').pop();
     if (command === 'power' || command === 'wifi_led') {
-        var send;
+        let send;
 
         switch (command) {
             case 'power':
@@ -44,18 +44,16 @@ adapter.on('stateChange', function (id, state) {
         }
 
         if (state.val === 'true' || state.val === true || state.val === '1' || state.val === 1 || state.val === 'on' || state.val === 'ON') {
-            sendCommand(commands[send] + '"on"]', function () {
-                adapter.setForeignState(adapter.namespace + '.' + command, true, true);
-            });
+            sendCommand(commands[send] + '"on"]', () =>
+                adapter.setForeignState(adapter.namespace + '.' + command, true, true));
         } else {
-            sendCommand(commands[send] + '"off"]', function () {
-                adapter.setForeignState(adapter.namespace + '.' + +command, false, true);
-            });
+            sendCommand(commands[send] + '"off"]', () =>
+                adapter.setForeignState(adapter.namespace + '.' + +command, false, true));
         }
     }
 });
 
-adapter.on('unload', function (callback) {
+adapter.on('unload', callback => {
     if (pingTimeout) clearTimeout(pingTimeout);
     adapter.setState('info.connection', false, true);
     if (pingInterval) clearInterval(pingInterval);
@@ -65,10 +63,10 @@ adapter.on('unload', function (callback) {
 
 adapter.on('ready', main);
 
-var pingTimeout = null;
+let pingTimeout = null;
 
 function sendPing() {
-    pingTimeout = setTimeout(function () {
+    pingTimeout = setTimeout(() => {
         pingTimeout = null;
         if (connected) {
             connected = false;
@@ -85,9 +83,8 @@ function sendPing() {
             adapter.log.warn('Token is not found yet!');
         }
 
-        server.send(commands.ping, 0, commands.ping.length, adapter.config.port, adapter.config.ip, function (err) {
-            if (err) adapter.log.error('Cannot send ping: ' + err)
-        });
+        server.send(commands.ping, 0, commands.ping.length, adapter.config.port, adapter.config.ip, err =>
+            err && adapter.log.error('Cannot send ping: ' + err));
     } catch (e) {
         adapter.log.warn('Cannot send ping: ' + e);
         clearTimeout(pingTimeout);
@@ -102,9 +99,9 @@ function sendPing() {
 
 function str2hex(str) {
     str = str.replace(/\s/g, '');
-    var buf = new Buffer(str.length / 2);
+    const buf = new Buffer(str.length / 2);
 
-    for (var i = 0; i < str.length / 2; i++) {
+    for (const i = 0; i < str.length / 2; i++) {
         buf[i] = parseInt(str[i * 2] + str[i * 2 + 1], 16);
     }
     return buf;
@@ -114,9 +111,9 @@ function sendCommand(cmd, callback) {
     try {
         message = cmd;
         packet.setHelo();
-        var cmdRaw = packet.getRaw();
+        const cmdRaw = packet.getRaw();
         adapter.log.info('Send >>> Helo >>> ' + cmdRaw.toString('hex'));
-        server.send(cmdRaw, 0, cmdRaw.length, adapter.config.port, adapter.config.ip, function (err) {
+        server.send(cmdRaw, 0, cmdRaw.length, adapter.config.port, adapter.config.ip, err => {
             if (err) adapter.log.error('Cannot send command: ' + err);
             if (typeof callback === 'function') callback(err);
         });
@@ -128,12 +125,12 @@ function sendCommand(cmd, callback) {
 
 function getStates(message) {
     // Search id in answer
-    var answer  = JSON.parse(message);
-    var request = Object.assign({}, paramReq);
+    const answer  = JSON.parse(message);
+    const request = Object.assign({}, paramReq);
     adapter.log.debug(answer.result.length);
 
     if (answer.id === 400) {
-        for (var i = 0; i < answer.result.length; i++) {
+        for (let i = 0; i < answer.result.length; i++) {
             if (request.params[i] === 'temperature'        ||
                 request.params[i] === 'power_consume_rate' ||
                 request.params[i] === 'power_price'        ||
@@ -188,13 +185,13 @@ function main() {
         ]
     };
 
-    server.on('error', function (err) {
+    server.on('error', err => {
         adapter.log.error('UDP error: ' + err);
         server.close();
         process.exit();
     });
 
-    server.on('message', function (msg, rinfo) {
+    server.on('message', (msg, rinfo) => {
         if (rinfo.port === adapter.config.port) {
             if (msg.length === 32) {
                 adapter.log.debug('Receive <<< Helo <<< ' + msg.toString('hex'));
@@ -216,7 +213,7 @@ function main() {
                         packet.setPlainData('{"id":' + packet.msgCounter + ',' + message + '}');
                         adapter.log.debug('{"id":' + packet.msgCounter + ',' + message + '}');
 
-                        var cmdRaw = packet.getRaw();
+                        const cmdRaw = packet.getRaw();
                         adapter.log.debug('Send >>> {"id":' + packet.msgCounter + ',' + message + "} >>> " + cmdRaw.toString('hex'));
                         adapter.log.debug(cmdRaw.toString('hex'));
                         message = '';
@@ -239,8 +236,8 @@ function main() {
         }
     });
 
-    server.on('listening', function () {
-        var address = server.address();
+    server.on('listening', () => {
+        const address = server.address();
         adapter.log.debug('server started on ' + address.address + ':' + address.port);
     });
 
