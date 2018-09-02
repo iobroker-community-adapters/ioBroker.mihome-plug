@@ -1,0 +1,224 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+
+    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="../../lib/js/ace-1.2.0/ace.js"></script>
+
+    <!-- these files always have to be included -->
+    <script type="text/javascript" src="../../js/translate.js"></script>
+    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
+    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
+    <script type="text/javascript" src="words.js"></script>
+
+<style>
+    .number {
+        width: 70px
+    }
+    .table-values th {
+        background: #686868;
+        color: #FFF;
+        font-weight: bold;
+    }
+    .table-values tr:nth-child(even) {
+        background: #d0d0d0;
+    }
+    .error {
+        border: 1px solid red;
+    }
+</style>
+
+<script type="text/javascript">
+    var values = [];
+
+    // the function loadSettings has to exist ...
+    function load(settings, onChange) {
+        if (!settings) return;
+
+        $('.value').each(function () {
+            var key = $(this).attr('id');
+            var $key = $('#' + key + '.value');
+            if ($key.attr('type') === 'checkbox') {
+                $key.prop('checked', settings[key]).on('change', function() {
+                    onChange();
+                });
+            } else {
+                $key.val(settings[key]).on('change', function() {
+                    onChange();
+                }).on('keyup', function() {
+                    onChange();
+                });
+            }
+        });
+
+        onChange(false);
+
+        var namespace = adapter + '.' + instance + '.';
+
+        socket.emit('getObjectView', 'system', 'state', {startkey: namespace, endkey: namespace + '\u9999'}, function (err, res) {
+            if (!err && res) {
+                var _res   = {};
+                for (var i = 0; i < res.rows.length; i++) {
+                    var obj = res.rows[i].value;
+                    values.push({
+                        name:       obj._id.substring(namespace.length),
+                        link:       obj.native.link,
+                        read:       obj.common.read,
+                        write:      obj.common.write,
+                        regex:      obj.native.regex,
+                        role:       obj.common.role,
+                        type:       obj.common.type,
+                        unit:       obj.common.unit,
+                        interval:   obj.native.interval,
+                        substitute: obj.native.substitute,
+                        offset:     obj.native.offset,
+                        factor:     obj.native.factor,
+                        obj:        obj
+                    });
+                }
+            }
+
+            var newValues = JSON.parse(JSON.stringify(values));
+            var __values2table;
+            if (typeof values2table !== 'undefined') __values2table = values2table;
+            __values2table = __values2table || _values2table;
+            __values2table('values', newValues, onChange, function () {
+                if (!newValues.length) {
+                    $('.table-button-add').trigger('click');
+                }
+
+                $('.values-input[data-name="name"]').change(function () {
+                    var val = $(this).val();
+                    var error = '';
+                    if (!val) {
+                        error = 'Empty names are not allowed';
+                    } else if (val.indexOf(' ') !== -1) {
+                        error = 'Spaces are not allowed';
+                    }
+                    if (error) {
+                        $(this).addClass(error).attr('title', _(error));
+                    } else {
+                        $(this).removeClass('error').attr('title', '');
+                    }
+                });
+                $('.values-input[data-name="type"]').change(function () {
+                    var id = $(this).data('index');
+                    var val = $(this).val();
+                    if (val === 'number') {
+                        $('.values-input[data-name="factor"][data-index="' + id + '"]').show();
+                        $('.values-input[data-name="offset"][data-index="' + id + '"]').show();
+                    } else {
+                        $('.values-input[data-name="factor"][data-index="' + id + '"]').hide();
+                        $('.values-input[data-name="offset"][data-index="' + id + '"]').hide();
+                    }
+                    if (val === 'boolean' || val === 'json') {
+                        $('.values-input[data-name="unit"][data-index="' + id + '"]').hide();
+                    } else {
+                        $('.values-input[data-name="unit"][data-index="' + id + '"]').show();
+                    }
+                }).each(function () {
+                    var id = $(this).data('index');
+                    var val = $(this).val();
+                    if (val === 'number') {
+                        $('.values-input[data-name="factor"][data-index="' + id + '"]').show();
+                        $('.values-input[data-name="offset"][data-index="' + id + '"]').show();
+                    } else {
+                        $('.values-input[data-name="factor"][data-index="' + id + '"]').hide();
+                        $('.values-input[data-name="offset"][data-index="' + id + '"]').hide();
+                    }
+                    if (val === 'boolean' || val === 'json') {
+                        $('.values-input[data-name="unit"][data-index="' + id + '"]').hide();
+                    } else {
+                        $('.values-input[data-name="unit"][data-index="' + id + '"]').show();
+                    }
+
+                });
+            });
+        });
+    }
+
+    function processTasks(tasks, cb) {
+        if (!tasks || !tasks.length) {
+            cb && cb();
+            return;
+        }
+
+        var task = tasks.pop();
+
+        if (typeof task === 'object') {
+            socket.emit('setObject', task._id, task, function (err) {
+                if (err) console.error(err);
+                setTimeout(function () {
+                    processTasks(tasks, cb);
+                }, 0);
+            });
+        } else {
+            socket.emit('delState', task, function (err) {
+                if (err) console.error(err);
+                socket.emit('delObject', task, function (err) {
+                    if (err) console.error(err);
+                    setTimeout(function () {
+                        processTasks(tasks, cb);
+                    }, 0);
+                });
+            });
+        }
+    }
+
+    function save(callback) {
+        var obj = {};
+        $('.value').each(function () {
+            var $this = $(this);
+            if ($this.attr('type') === 'checkbox') {
+                obj[$this.attr('id')] = $this.prop('checked');
+            } else {
+                obj[$this.attr('id')] = $this.val();
+            }
+        });
+
+        callback(obj);
+    }
+</script>
+</head>
+<body>
+    <div class="m adapter-container">
+        <div class="row">
+            <div class="col s12">
+                <div class="row">
+                    <div class="col s6 m4 l2">
+                        <img src="mihome-plug.png" class="logo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6 l4 xl3">
+                        <input class="value" id="ip" type="text" maxlength="15"/>
+                        <label for="ip" class="translate">IP address</label>
+                    </div>
+                    <div class="input-field col s12 m6 l4 xl3">
+                        <input class="value" id="port" min="0" max="65535" type="number"/>
+                        <label for="port" class="translate">Lamp port</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6 l4 xl3">
+                        <input class="value" id="ownPort" min="0" max="65535" type="number"/>
+                        <label for="ownPort" class="translate">Own port</label>
+                    </div>
+                    <div class="input-field col s12 m6 l4 xl3">
+                        <input class="value" id="pingInterval" min="1000" max="36000000" type="number"/>
+                        <label for="pingInterval" class="translate">Poll interval (ms)</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m12 l8 xl6">
+                        <input class="value" id="token" type="text"/>
+                        <label for="token" class="translate">Token</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

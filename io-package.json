@@ -1,16 +1,37 @@
 {
 	"common": {
 		"name": "mihome-plug",
-		"version": "0.1.1",
+		"version": "0.2.0",
 		"news": {
+			"0.2.0": {
+				"en": "The input of token is allowed if required",
+				"de": "Die Eingabe von Token ist bei Bedarf erlaubt",
+				"ru": "Ввод маркера разрешен, если требуется",
+				"pt": "A entrada do token é permitida, se necessário",
+				"nl": "De invoer van het token is toegestaan ​​als dat nodig is",
+				"fr": "L'entrée du jeton est autorisée si nécessaire",
+				"it": "L'input di token è consentito se richiesto",
+				"es": "La entrada de token está permitida si es necesario",
+				"pl": "Wejście tokena jest dozwolone, jeśli jest to wymagane"
+			},
 			"0.1.1": {
 				"en": "Inital version",
 				"de": "Erste Version",
 				"ru": "Первая версия"
 			}
 		},
-		"title": "mihome-plug Adapter",
-		"desc": "This adapter allows control Xiaomi Plug (wifi) ",
+		"title": "mihome-plug",
+		"desc": {
+			"en": "This adapter allows control Xiaomi Plug (wifi)",
+			"de": "Dieser Adapter ermöglicht die Steuerung Xiaomi Plug (wifi)",
+			"ru": "Этот адаптер позволяет управлять штекером Xiaomi (wifi)",
+			"pt": "Este adaptador permite controle Xiaomi Plug (wifi)",
+			"nl": "Deze adapter maakt aansturing mogelijk Xiaomi Plug (wifi)",
+			"fr": "Cet adaptateur permet de contrôler Xiaomi Plug (wifi)",
+			"it": "Questo adattatore consente il controllo Xiaomi Plug (wifi)",
+			"es": "Este adaptador permite el control de Xiaomi Plug (wifi)",
+			"pl": "Ten adapter umożliwia sterowanie wtyczką Xiaomi (wifi)"
+		},
 		"authors": [
 			"bluefox <dogafox@gmail.com>"
 		],
@@ -21,6 +42,7 @@
 		"icon": "mihome-plug.png",
 		"webExtension": "lib/mihome-plug.js",
 		"readme": "https://github.com/ioBroker/ioBroker.mihome-plug/blob/master/README.md",
+		"materialize": true,
 		"keywords": [
 			"url",
 			"html",
@@ -69,7 +91,7 @@
 				"type": "boolean",
 				"read": true,
 				"write": true,
-				"role": "state"
+				"role": "switch"
 			},
 			"native": {}
 		},
@@ -94,7 +116,7 @@
 				"type": "boolean",
 				"read": true,
 				"write": true,
-				"role": "state"
+				"role": "switch"
 			},
 			"native": {}
 		}

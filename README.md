@@ -10,5 +10,8 @@ This adapter is forked from [MeisterTR](https://github.com/MeisterTR/iobroker.mi
 
 ## Changelog
 
+### 0.2.0 (2018-09-02)
+* (bluefox) The input of token is allowed if required
+
 ### 0.1.1 (2017-08-04)
 * (bluefox) initial commit
