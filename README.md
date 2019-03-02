@@ -1,3 +1,5 @@
+# Moved to https://github.com/iobroker-community-adapters/ioBroker.mihome-plug
+
 ![Logo](admin/mihome-plug.png)
 # ioBroker mihome-plug adapter
 =================
