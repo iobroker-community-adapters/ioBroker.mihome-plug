@@ -41,7 +41,7 @@
 		"loglevel": "info",
 		"icon": "mihome-plug.png",
 		"webExtension": "lib/mihome-plug.js",
-		"readme": "https://github.com/ioBroker/ioBroker.mihome-plug/blob/master/README.md",
+		"readme": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug/blob/master/README.md",
 		"materialize": true,
 		"keywords": [
 			"url",
@@ -49,7 +49,7 @@
 			"file",
 			"mihome-plug"
 		],
-		"extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.mihome-plug/master/admin/mihome-plug.png",
+		"extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.mihome-plug/master/admin/mihome-plug.png",
 		"type": "hardware",
 		"config": {
 			"minWidth": 800,
