@@ -6,9 +6,9 @@
     "ioBroker",
     "mihome-plug"
   ],
-  "homepage": "https://github.com/ioBroker/ioBroker.mihome-plug",
+  "homepage": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug",
   "bugs": {
-    "url": "https://github.com/ioBroker/ioBroker.mihome-plug/issues"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug/issues"
   },
   "license": "MIT",
   "author": {
@@ -18,7 +18,7 @@
   "main": "main.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ioBroker/ioBroker.mihome-plug"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug"
   },
   "scripts": {
     "test": "node node_modules/mocha/bin/mocha --exit"
