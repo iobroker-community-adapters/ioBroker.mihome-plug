@@ -1,6 +1,6 @@
 ![Logo](admin/mihome-plug.png)
 # ioBroker mihome-plug adapter
-=================
+![Number of Installations](http://iobroker.live/badges/mihome-plug-installed.svg) ![Number of Installations](http://iobroker.live/badges/mihome-plug-stable.svg) =================
 
 This adapter allows you control the Xiaomi Plug (wifi) with ioBroker.
 You can control simple and 6x plugs with it.
