@@ -101,7 +101,7 @@ function str2hex(str) {
     str = str.replace(/\s/g, '');
     const buf = new Buffer(str.length / 2);
 
-    for (const i = 0; i < str.length / 2; i++) {
+    for (let i = 0; i < str.length / 2; i++) {
         buf[i] = parseInt(str[i * 2] + str[i * 2 + 1], 16);
     }
     return buf;
