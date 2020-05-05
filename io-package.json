@@ -1,124 +1,136 @@
 {
-	"common": {
-		"name": "mihome-plug",
-		"version": "0.2.0",
-		"news": {
-			"0.2.0": {
-				"en": "The input of token is allowed if required",
-				"de": "Die Eingabe von Token ist bei Bedarf erlaubt",
-				"ru": "Ввод маркера разрешен, если требуется",
-				"pt": "A entrada do token é permitida, se necessário",
-				"nl": "De invoer van het token is toegestaan ​​als dat nodig is",
-				"fr": "L'entrée du jeton est autorisée si nécessaire",
-				"it": "L'input di token è consentito se richiesto",
-				"es": "La entrada de token está permitida si es necesario",
-				"pl": "Wejście tokena jest dozwolone, jeśli jest to wymagane"
-			},
-			"0.1.1": {
-				"en": "Inital version",
-				"de": "Erste Version",
-				"ru": "Первая версия"
-			}
-		},
-		"title": "mihome-plug",
-		"desc": {
-			"en": "This adapter allows control Xiaomi Plug (wifi)",
-			"de": "Dieser Adapter ermöglicht die Steuerung Xiaomi Plug (wifi)",
-			"ru": "Этот адаптер позволяет управлять штекером Xiaomi (wifi)",
-			"pt": "Este adaptador permite controle Xiaomi Plug (wifi)",
-			"nl": "Deze adapter maakt aansturing mogelijk Xiaomi Plug (wifi)",
-			"fr": "Cet adaptateur permet de contrôler Xiaomi Plug (wifi)",
-			"it": "Questo adattatore consente il controllo Xiaomi Plug (wifi)",
-			"es": "Este adaptador permite el control de Xiaomi Plug (wifi)",
-			"pl": "Ten adapter umożliwia sterowanie wtyczką Xiaomi (wifi)"
-		},
-		"authors": [
-			"bluefox <dogafox@gmail.com>"
-		],
-		"license": "MIT",
-		"platform": "Javascript/Node.js",
-		"mode": "daemon",
-		"loglevel": "info",
-		"icon": "mihome-plug.png",
-		"webExtension": "lib/mihome-plug.js",
-		"readme": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug/blob/master/README.md",
-		"materialize": true,
-		"keywords": [
-			"url",
-			"html",
-			"file",
-			"mihome-plug"
-		],
-		"extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.mihome-plug/master/admin/mihome-plug.png",
-		"type": "hardware",
-		"config": {
-			"minWidth": 800,
-			"width ": 1224
-		}
-	},
-	"native": {
-		"ip": "0.0.0.0",
-		"port": 54321,
-		"ownPort": 53423,
-		"pingInterval": 20000,
-		"token": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
-	},
-	"instanceObjects": [
-		{
-			"_id": "info",
-			"type": "channel",
-			"common": {
-				"name": "Information"
-			},
-			"native": {}
-		},
-		{
-			"_id": "info.connection",
-			"type": "state",
-			"common": {
-				"role": "indicator.connected",
-				"name": "If connected to Plug",
-				"type": "boolean",
-				"read": true
-			},
-			"native": {}
-		},
-		{
-			"_id": "power",
-			"type": "state",
-			"common": {
-				"name": "Plug power",
-				"type": "boolean",
-				"read": true,
-				"write": true,
-				"role": "switch"
-			},
-			"native": {}
-		},
-		{
-			"_id": "temperature",
-			"type": "state",
-			"common": {
-				"name": "Plug temperature",
-				"type": "number",
-				"read": true,
-				"write": false,
-				"unit": "°C",
-				"role": "value.temperature"
-			},
-			"native": {}
-		},
-		{
-			"_id": "wifi_led",
-			"type": "state",
-			"common": {
-				"name": "Plug wifi LED",
-				"type": "boolean",
-				"read": true,
-				"write": true,
-				"role": "switch"
-			},
-			"native": {}
-		}
-	]
+    "common": {
+        "name": "mihome-plug",
+        "version": "0.2.1",
+        "news": {
+            "0.2.1": {
+                "en": "fix wrong variable usage",
+                "de": "Behebung der falschen Variablenverwendung",
+                "ru": "исправить неправильное использование переменной",
+                "pt": "corrigir uso incorreto de variável",
+                "nl": "herstel verkeerd variabel gebruik",
+                "fr": "corriger une mauvaise utilisation des variables",
+                "it": "correggere un utilizzo variabile errato",
+                "es": "arreglar el uso incorrecto de variables",
+                "pl": "naprawić nieprawidłowe użycie zmiennej",
+                "zh-cn": "修正错误的变量用法"
+            },
+            "0.2.0": {
+                "en": "The input of token is allowed if required",
+                "de": "Die Eingabe von Token ist bei Bedarf erlaubt",
+                "ru": "Ввод маркера разрешен, если требуется",
+                "pt": "A entrada do token é permitida, se necessário",
+                "nl": "De invoer van het token is toegestaan ​​als dat nodig is",
+                "fr": "L'entrée du jeton est autorisée si nécessaire",
+                "it": "L'input di token è consentito se richiesto",
+                "es": "La entrada de token está permitida si es necesario",
+                "pl": "Wejście tokena jest dozwolone, jeśli jest to wymagane"
+            },
+            "0.1.1": {
+                "en": "Inital version",
+                "de": "Erste Version",
+                "ru": "Первая версия"
+            }
+        },
+        "title": "mihome-plug",
+        "desc": {
+            "en": "This adapter allows control Xiaomi Plug (wifi)",
+            "de": "Dieser Adapter ermöglicht die Steuerung Xiaomi Plug (wifi)",
+            "ru": "Этот адаптер позволяет управлять штекером Xiaomi (wifi)",
+            "pt": "Este adaptador permite controle Xiaomi Plug (wifi)",
+            "nl": "Deze adapter maakt aansturing mogelijk Xiaomi Plug (wifi)",
+            "fr": "Cet adaptateur permet de contrôler Xiaomi Plug (wifi)",
+            "it": "Questo adattatore consente il controllo Xiaomi Plug (wifi)",
+            "es": "Este adaptador permite el control de Xiaomi Plug (wifi)",
+            "pl": "Ten adapter umożliwia sterowanie wtyczką Xiaomi (wifi)"
+        },
+        "authors": [
+            "bluefox <dogafox@gmail.com>"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "mode": "daemon",
+        "loglevel": "info",
+        "icon": "mihome-plug.png",
+        "webExtension": "lib/mihome-plug.js",
+        "readme": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug/blob/master/README.md",
+        "materialize": true,
+        "keywords": [
+            "url",
+            "html",
+            "file",
+            "mihome-plug"
+        ],
+        "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.mihome-plug/master/admin/mihome-plug.png",
+        "type": "hardware",
+        "config": {
+            "minWidth": 800,
+            "width ": 1224
+        }
+    },
+    "native": {
+        "ip": "0.0.0.0",
+        "port": 54321,
+        "ownPort": 53423,
+        "pingInterval": 20000,
+        "token": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+    },
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "If connected to Plug",
+                "type": "boolean",
+                "read": true
+            },
+            "native": {}
+        },
+        {
+            "_id": "power",
+            "type": "state",
+            "common": {
+                "name": "Plug power",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "role": "switch"
+            },
+            "native": {}
+        },
+        {
+            "_id": "temperature",
+            "type": "state",
+            "common": {
+                "name": "Plug temperature",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "unit": "°C",
+                "role": "value.temperature"
+            },
+            "native": {}
+        },
+        {
+            "_id": "wifi_led",
+            "type": "state",
+            "common": {
+                "name": "Plug wifi LED",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "role": "switch"
+            },
+            "native": {}
+        }
+    ]
 }
