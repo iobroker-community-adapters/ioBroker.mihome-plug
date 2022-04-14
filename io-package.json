@@ -52,7 +52,6 @@
         "mode": "daemon",
         "loglevel": "info",
         "icon": "mihome-plug.png",
-        "webExtension": "lib/mihome-plug.js",
         "readme": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug/blob/master/README.md",
         "materialize": true,
         "keywords": [
