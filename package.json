@@ -32,6 +32,6 @@
   "devDependencies": {
     "gulp": "^4.0.2",
     "mocha": "^9.2.2",
-    "chai": "^4.2.0"
+    "chai": "^5.0.0"
   }
 }
