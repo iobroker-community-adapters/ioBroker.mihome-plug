@@ -1,6 +1,6 @@
 {
   "name": "iobroker.mihome-plug",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Control your mihome Lamp with ioBroker",
   "author": {
     "name": "Bluefox",

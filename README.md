@@ -13,7 +13,7 @@ This adapter is forked from [MeisterTR](https://github.com/MeisterTR/iobroker.mi
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
-### **WORK IN PROGRESS**
+### 0.3.0 (2024-03-21)
 - (mcm1957) Adapter requires node 18 or newer now.
 - (mcm1957) Dependencies have been updated.
 
