@@ -32,7 +32,19 @@
                 "ru": "Первая версия"
             }
         },
-        "title": "mihome-plug",
+        "titleLang":{
+            "en": "mihome-plug",
+            "de": "mihome-plug",
+            "ru": "mihome-plug",
+            "pt": "mihome-plug",
+            "nl": "mihome-plug",
+            "fr": "mihome-plug"",
+            "it": "mihome-plug",
+            "es": "mihome-plug",
+            "pl": "mihome-plug",
+            "uk": "mihome-plug",
+            "zh-cn": "mihome 插头"
+        },
         "desc": {
             "en": "This adapter allows control Xiaomi Plug (wifi)",
             "de": "Dieser Adapter ermöglicht die Steuerung Xiaomi Plug (wifi)",
