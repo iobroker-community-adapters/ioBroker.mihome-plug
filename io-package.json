@@ -72,10 +72,14 @@
     "authors": [
       "bluefox <dogafox@gmail.com>"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "license": "MIT",
+      "type": "free"
+    },
     "platform": "Javascript/Node.js",
     "mode": "daemon",
     "loglevel": "info",
+    "tier": 2,
     "icon": "mihome-plug.png",
     "readme": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug/blob/master/README.md",
     "materialize": true,
@@ -90,7 +94,17 @@
     "config": {
       "minWidth": 800,
       "width ": 1224
-    }
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.19"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=6.13.16"
+      }
+    ]
   },
   "native": {
     "ip": "0.0.0.0",
