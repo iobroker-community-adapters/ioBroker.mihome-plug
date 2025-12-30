@@ -2,15 +2,10 @@
   "name": "iobroker.mihome-plug",
   "version": "0.4.0",
   "description": "Control your mihome Lamp with ioBroker",
-  "author": {
-    "name": "Bluefox",
-    "email": "dogafox@gmail.com"
-  },
+  "author": "Bluefox <dogafox@gmail.com>",
   "contributors": [
-    {
-      "name": "mcm1957",
-      "email": "mcm57@gmx.de"
-    }
+    "mcm1957 <mcm57@gmx.de>",
+    "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
   ],
   "homepage": "https://github.com/iobroker-community-adapters/ioBroker.mihome-plug",
   "license": "MIT",
